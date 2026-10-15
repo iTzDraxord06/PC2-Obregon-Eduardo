@@ -1,0 +1,67 @@
+<div class="card shadow-sm" *ngIf="estudiante">
+
+    <div class="card-header bg-primary text-white">
+        <h3 class="mb-0">Detalle del estudiante</h3>
+    </div>
+
+    <div class="card-body">
+
+        <h4>{{ estudiante.nombre }}</h4>
+
+        <hr>
+
+        <p>
+            <strong>Nota 1:</strong>
+            {{ estudiante.nota1 }}
+        </p>
+
+        <p>
+            <strong>Nota 2:</strong>
+            {{ estudiante.nota2 }}
+        </p>
+
+        <p>
+            <strong>Nota 3:</strong>
+            {{ estudiante.nota3 }}
+        </p>
+
+        <p>
+            <strong>Suma de notas:</strong>
+            {{ suma }}
+        </p>
+
+        <p>
+            <strong>Promedio:</strong>
+            {{ promedio | number:'1.2-2' }}
+        </p>
+
+        <p>
+            <strong>Estado académico:</strong>
+
+            <span class="badge"
+                  [ngClass]="estado === 'Aprobado' ? 'bg-success' : 'bg-danger'">
+                {{ estado }}
+            </span>
+        </p>
+
+        <p>
+            <strong>Observación:</strong>
+            {{ observacion }}
+        </p>
+
+        <a routerLink="/" class="btn btn-secondary">
+            Volver a la lista
+        </a>
+
+    </div>
+</div>
+
+<div *ngIf="error" class="alert alert-danger">
+    {{ error }}
+
+    <div class="mt-3">
+        <a routerLink="/" class="btn btn-secondary">
+            Volver
+        </a>
+    </div>
+</div>

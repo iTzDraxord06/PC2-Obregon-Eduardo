@@ -1,0 +1,43 @@
+<div class="card shadow-sm">
+
+    <div class="card-header bg-primary text-white">
+        <h3 class="mb-0">Reporte de estudiantes</h3>
+    </div>
+
+    <div class="card-body">
+
+        <div *ngIf="!cargando && !error && estudiantes.length === 0" class="alert alert-warning">
+            La API no devolvió estudiantes.
+        </div>
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped table-hover">
+
+                <thead class="table-dark">
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Nota 1</th>
+                        <th>Nota 2</th>
+                        <th>Nota 3</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr *ngFor="let estudiante of estudiantes">
+                        <td>{{ estudiante.nombre }}</td>
+                        <td>{{ estudiante.nota1 }}</td>
+                        <td>{{ estudiante.nota2 }}</td>
+                        <td>{{ estudiante.nota3 }}</td>
+                        <td>
+                            <a [routerLink]="['/detalle', estudiante.id]" class="btn btn-primary btn-sm">
+                                Detalle
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+
+    </div>
+</div>
